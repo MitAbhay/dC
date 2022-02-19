@@ -9,25 +9,25 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/triipaathii/LITTLE-SPARROW">
+  <a href="https://github.com/triipaathii/dC">
     <img src="assets/images/logo.png" alt="Logo" width="120" height="120">
   </a>
 
-  <h2 align="center">LITTLE SPARROW</h2>
+  <h2 align="center">dear Canary</h2>
 
   <p align="center">
     An Application for solving the problem of Postmartum Depression.
     <br />
     This is a Submission Project for Hackathon : 
-    <a href="https://www.hackviolet.com/">HackVoilet 2022</a>
+    <a href="https://electrothon.specnith.com/">Electrothon 4.0</a>
     <br />
     <br />
     <a href="https://docs.google.com/presentation/d/1MTftF84CK2QUuVeUE3USoIupDVgb1AhyNT_g4CZv5c8/edit#slide=id.p"><strong>Explore the Presentation »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/triipaathii/LITTLE-SPARROW/issues">Report Bug</a>
+    <a href="https://github.com/triipaathii/dC/issues">Report Bug</a>
     ·
-    <a href="https://github.com/triipaathii/LITTLE-SPARROW/issues">Request Feature</a>
+    <a href="https://github.com/triipaathii/dC/issues">Request Feature</a>
   </p>
 </div>
 
