@@ -261,7 +261,7 @@ class _AppointmentState extends State<Appointment> {
                                             )
                                           ),
                                           TextSpan(
-                                            text: listOfReleivers[index]!["country"],
+                                            text: listOfReleivers[index]["country"],
                                               style: const TextStyle(
                                                   fontFamily: "Poppins",
                                                   color: Colors.black,

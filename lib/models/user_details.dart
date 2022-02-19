@@ -1,8 +1,3 @@
-import 'dart:async';
-import 'package:flutter/foundation.dart';
-import 'package:intl/intl.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dear_canary/screens/Diary/old_diary_entry.dart';
 
 
@@ -78,9 +73,7 @@ class UserDetail {
       this.userSingleMother,
       this.userJob,
       this.userDetailsFilled
-  ){
-    addUser();
-  }
+  );
 
   UserDetail.addDiaryEntry(this.userCurrentDiaryEntry){
     userCurrentDiaryEntryTiming = DateTime.now();
@@ -95,26 +88,26 @@ class UserDetail {
   }
 
 
-  Future<DocumentReference> addUser(){
-    return FirebaseFirestore.instance
-        .collection('userDetails')
-        .add(<String, dynamic>{
-            'name': name,
-            'country': userCountry,
-            'mobile': userMobile,
-            'state': userState,
-            'pincode': userPinCode,
-            'job': userJob,
-            'dob': DateFormat('dd-mm-yyyy').format(userDateOfBirth),
-            'delivery date': DateFormat('dd-mm-yyyy').format(userDeliveryDate),
-            'single mother': userSingleMother,
-            'currently pregnant': userCurrentlyPregnant,
-            'details filled': userDetailsFilled,
-            'initial test taken': userInitialTestTaken ,
-            'child no': userChildNo,
-            'age': userAge,
-            'initial test score': userInitialScore,
-    });
-  }
+  // Future<DocumentReference> addUser(){
+  //   return FirebaseFirestore.instance
+  //       .collection('userDetails')
+  //       .add(<String, dynamic>{
+  //           'name': name,
+  //           'country': userCountry,
+  //           'mobile': userMobile,
+  //           'state': userState,
+  //           'pincode': userPinCode,
+  //           'job': userJob,
+  //           'dob': DateFormat('dd-mm-yyyy').format(userDateOfBirth),
+  //           'delivery date': DateFormat('dd-mm-yyyy').format(userDeliveryDate),
+  //           'single mother': userSingleMother,
+  //           'currently pregnant': userCurrentlyPregnant,
+  //           'details filled': userDetailsFilled,
+  //           'initial test taken': userInitialTestTaken ,
+  //           'child no': userChildNo,
+  //           'age': userAge,
+  //           'initial test score': userInitialScore,
+  //   });
+  // }
 
 }

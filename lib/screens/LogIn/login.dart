@@ -1,10 +1,8 @@
+import 'package:dear_canary/screens/intro_page_1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:dear_canary/models/user_details.dart';
-import 'package:dear_canary/screens/InitialQuiz/initial_questioning.dart';
 import 'package:dear_canary/screens/UserDetailsEntry/user_basic_details_enrty.dart';
-import 'package:dear_canary/screens/home.dart';
 
 // import 'package:tele_doc/widget/otp_verify.dart';
 
@@ -28,7 +26,7 @@ class _MobileAuthState extends State<MobileAuth> {
       MobileVerificationState.SHOW_MOBILE_FORM_STATE;
 
   // For firebase auth
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
 
   final _otpController = TextEditingController();
   final _mobileController = TextEditingController();
@@ -38,35 +36,35 @@ class _MobileAuthState extends State<MobileAuth> {
   // For activating loading screen
   bool showLoading = false;
 
-  void signInWithPhoneAuthCredential(
-      PhoneAuthCredential phoneAuthCredential) async {
-    setState(() {
-      showLoading = true;
-    });
-
-    try {
-      final authCredential =
-      await _auth.signInWithCredential(phoneAuthCredential);
-
-      setState(() {
-        showLoading = false;
-      });
-
-      if (authCredential.user != null) {
-        UserDetail.mobileNumber(_mobileController.text);
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const BasicDataEntry()));
-      }
-    } on FirebaseAuthException catch (e) {
-      setState(() {
-        showLoading = false;
-      }
-      );
-
-      _scaffoldkey.currentState!
-          .showSnackBar(SnackBar(content: Text(e.message.toString())));
-    }
-  }
+  // void signInWithPhoneAuthCredential(
+  //     PhoneAuthCredential phoneAuthCredential) async {
+  //   setState(() {
+  //     showLoading = true;
+  //   });
+  //
+  //   try {
+  //     final authCredential =
+  //     await _auth.signInWithCredential(phoneAuthCredential);
+  //
+  //     setState(() {
+  //       showLoading = false;
+  //     });
+  //
+  //     if (authCredential.user != null) {
+  //       UserDetail.mobileNumber(_mobileController.text);
+  //       Navigator.push(context,
+  //           MaterialPageRoute(builder: (context) => const BasicDataEntry()));
+  //     }
+  //   } on FirebaseAuthException catch (e) {
+  //     setState(() {
+  //       showLoading = false;
+  //     }
+  //     );
+  //
+  //     _scaffoldkey.currentState!
+  //         .showSnackBar(SnackBar(content: Text(e.message.toString())));
+  //   }
+  // }
 
   final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey();
 
@@ -78,39 +76,39 @@ class _MobileAuthState extends State<MobileAuth> {
     final mediaQueryWidth = MediaQuery.of(context).size.width;
 
     // Function to send OTP
-    void _sendOTP() async{
+    // void _sendOTP() async{
 
-      await _auth.verifyPhoneNumber(
-          phoneNumber: _mobileController.text,
-          verificationCompleted:
-              (phoneAuthCredential) async {
-            setState(() {
-              showLoading = false;
-            }); //signInWithPhoneAuthCredential(phoneAuthCredential);
-          },
-          verificationFailed:
-              (verificationFailed) async {
-            setState(() {
-              showLoading = false;
-            });
-            _scaffoldkey.currentState?.showSnackBar(
-                SnackBar(
-                    content: Text(verificationFailed
-                        .message
-                        .toString())));
-          },
-          codeSent:
-              (verificationId, resendingToken) async {
-            setState(() {
-              showLoading = false;
-              currentState = MobileVerificationState
-                  .SHOW_OTP_FORM_STATE;
-              this.verificationId = verificationId;
-            });
-          },
-          codeAutoRetrievalTimeout:
-              (verificationId) async {});
-    }
+      // await _auth.verifyPhoneNumber(
+      //     phoneNumber: _mobileController.text,
+      //     verificationCompleted:
+      //         (phoneAuthCredential) async {
+      //       setState(() {
+      //         showLoading = false;
+      //       }); //signInWithPhoneAuthCredential(phoneAuthCredential);
+      //     },
+      //     verificationFailed:
+      //         (verificationFailed) async {
+      //       setState(() {
+      //         showLoading = false;
+      //       });
+      //       _scaffoldkey.currentState?.showSnackBar(
+      //           SnackBar(
+      //               content: Text(verificationFailed
+      //                   .message
+      //                   .toString())));
+      //     },
+      //     codeSent:
+      //         (verificationId, resendingToken) async {
+      //       setState(() {
+      //         showLoading = false;
+      //         currentState = MobileVerificationState
+      //             .SHOW_OTP_FORM_STATE;
+      //         this.verificationId = verificationId;
+      //       });
+      //     },
+      //     codeAutoRetrievalTimeout:
+      //         (verificationId) async {});
+    // }
 
     // Login Page
     getMobileFormWidget(context) {
@@ -209,8 +207,9 @@ class _MobileAuthState extends State<MobileAuth> {
                                 setState(() {
                                   showLoading = true;
                                 });
-
-                                _sendOTP();
+                                setState(() {
+                                  currentState = MobileVerificationState.SHOW_OTP_FORM_STATE;
+                                });
                               },
                               child: const Center(
                                 child: Text(
@@ -317,7 +316,7 @@ class _MobileAuthState extends State<MobileAuth> {
                       children: <Widget>[
                         TextButton(
                             onPressed: () async{
-                              _sendOTP();
+                              // _sendOTP();
                             },
                             child: const Text(
                               "Resend",
@@ -342,13 +341,15 @@ class _MobileAuthState extends State<MobileAuth> {
                                   style: TextButton.styleFrom(
                                       backgroundColor: const Color(0xff084d52)),
                                   onPressed: () async {
-                                    PhoneAuthCredential phoneAuthCredential =
-                                    PhoneAuthProvider.credential(
-                                        verificationId: verificationId,
-                                        smsCode: _otpController.text);
+                                    // PhoneAuthCredential phoneAuthCredential =
+                                    // PhoneAuthProvider.credential(
+                                    //     verificationId: verificationId,
+                                    //     smsCode: _otpController.text);
+                                    //
+                                    // signInWithPhoneAuthCredential(
+                                    //     phoneAuthCredential);
 
-                                    signInWithPhoneAuthCredential(
-                                        phoneAuthCredential);
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => const IntroToInitialQuiz()));
                                   },
                                   child: const Center(
                                     child: Text(
@@ -395,13 +396,7 @@ class _MobileAuthState extends State<MobileAuth> {
                   ),
 
                 Container(
-                  child: showLoading
-                      ? const Center(
-                          child: CircularProgressIndicator(
-                            color: Color(0xff084d52),
-                          ),
-                        )
-                      : currentState == MobileVerificationState.SHOW_MOBILE_FORM_STATE
+                  child: currentState == MobileVerificationState.SHOW_MOBILE_FORM_STATE
                       ? getMobileFormWidget(context)
                       : getOtpFormWidget(context),
                 )
