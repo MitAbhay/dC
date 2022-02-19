@@ -10,6 +10,7 @@ import 'package:dear_canary/screens/ConfidenceBooster/confidence_booster.dart';
 import 'package:dear_canary/screens/Diary/diary.dart';
 import 'package:dear_canary/screens/Notifications/notifications.dart';
 import 'package:dear_canary/screens/Settings/settings.dart';
+import 'package:alan_voice/alan_voice.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -25,6 +26,10 @@ class HomePage extends StatelessWidget {
           //set brightness for icons, like dark background light icons
         )
     );
+  
+   AlanVoice.addButton(
+      "8ebf797aaec5e79c69680a2bfdfde45f2e956eca572e1d8b807a3e2338fdd0dc/stage",
+      buttonAlign: AlanVoice.BUTTON_ALIGN_LEFT);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
