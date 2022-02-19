@@ -50,7 +50,7 @@ class _BasicDataEntryState extends State<BasicDataEntry> {
     final DateTime? picked = await showDatePicker(
         context: context,
         initialDate: DateTime.now(),
-        firstDate: DateTime(2000),
+        firstDate: DateTime(1900),
         lastDate: DateTime(2030)
     );
     if (picked != null && picked != _userDeliveryDate) {
@@ -374,13 +374,23 @@ class _BasicDataEntryState extends State<BasicDataEntry> {
                             }
                             else{
                               // To store basic entry data in user's model
-                              UserDetail.basicEntry(
-                                _userNameController.text,
-                                _userBirthDate!,
-                                _userCurrentlyPregnant,
-                                _userDeliveryDate!,
-                                int.parse(_userChildNoController.text)
-                              );
+                              if (_userCurrentlyPregnant){
+                                UserDetail.basicEntry(
+                                    _userNameController.text,
+                                    _userBirthDate!,
+                                    _userCurrentlyPregnant,
+                                    _userDeliveryDate!,
+                                    int.parse(_userChildNoController.text)
+                                );
+                              } else {
+                                UserDetail.basicEntry(
+                                    _userNameController.text,
+                                    _userBirthDate!,
+                                    _userCurrentlyPregnant,
+                                    _userDeliveryDate!,
+                                    int.parse(_userChildNoController.text)
+                                );
+                              }
 
 
                               Navigator.push(

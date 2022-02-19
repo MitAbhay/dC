@@ -1,3 +1,4 @@
+import 'package:dear_canary/screens/UserProfile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -56,7 +57,8 @@ class HomePage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            //Notification
+
+                            //Notification Icon
                             InkWell(
                               onTap: (){
                                 Navigator.push(
@@ -72,7 +74,8 @@ class HomePage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             ),
-                            //Setting
+
+                            //Setting Icon
                             InkWell(
                               onTap: (){
                                 Navigator.push(
@@ -101,6 +104,7 @@ class HomePage extends StatelessWidget {
                           scrollDirection: Axis.vertical,
                           primary: false,
                           children: <Widget>[
+
                             // Postpartum Depression
                             InkWell(
                                 onTap: (){
@@ -144,6 +148,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                 )
                             ),
+
                             //Community
                             InkWell(
                                 onTap: (){
@@ -185,6 +190,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                 )
                             ),
+
                             //Appointment
                             InkWell(
                                 onTap: (){
@@ -228,6 +234,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                 )
                             ),
+
                             //Diary
                             InkWell(
                                 onTap: (){
@@ -269,6 +276,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                 )
                             ),
+
                             // AI Bot
                             InkWell(
                                 onTap: (){
@@ -310,9 +318,15 @@ class HomePage extends StatelessWidget {
                                   ),
                                 )
                             ),
+
                             // Profile
                             InkWell(
-                                onTap: (){},
+                                onTap: (){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const Profile())
+                                  );
+                                },
                                 borderRadius: BorderRadius.circular(20),
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -346,6 +360,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                 )
                             ),
+
                             // Confidence Booster
                             InkWell(
                                 onTap: (){
@@ -387,6 +402,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                 )
                             ),
+
                             //About Us
                             InkWell(
                                 onTap: (){

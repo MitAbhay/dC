@@ -349,7 +349,7 @@ class _MobileAuthState extends State<MobileAuth> {
                                     // signInWithPhoneAuthCredential(
                                     //     phoneAuthCredential);
 
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => const IntroToInitialQuiz()));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => const BasicDataEntry()));
                                   },
                                   child: const Center(
                                     child: Text(
