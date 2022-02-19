@@ -283,46 +283,46 @@ class HomePage extends StatelessWidget {
                             ),
 
                             // AI Bot
-                            InkWell(
-                                onTap: (){
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => const AIBot())
-                                  );
-                                },
-                                borderRadius: BorderRadius.circular(20),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.white.withOpacity(0.5),
-                                      borderRadius: BorderRadius.circular(20)
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 15,
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: <Widget>[
-                                        const SizedBox(),
-                                        Image.asset(
-                                          "assets/images/robot.png",
-                                          height: 80,
-                                        ),
-                                        const SizedBox(),
-                                        const Text(
-                                          "AI Bot",
-                                          style: TextStyle(
-                                              fontFamily: "Lemon Milk",
-                                              fontSize: 18,
-                                              color: Colors.black
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                )
-                            ),
+                            // InkWell(
+                            //     onTap: (){
+                            //       Navigator.push(
+                            //         context,
+                            //         MaterialPageRoute(builder: (context) => const AIBot())
+                            //       );
+                            //     },
+                            //     borderRadius: BorderRadius.circular(20),
+                            //     child: Container(
+                            //       decoration: BoxDecoration(
+                            //           color: Colors.white.withOpacity(0.5),
+                            //           borderRadius: BorderRadius.circular(20)
+                            //       ),
+                            //       child: Padding(
+                            //         padding: const EdgeInsets.symmetric(
+                            //           vertical: 15,
+                            //         ),
+                            //         child: Column(
+                            //           mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            //           crossAxisAlignment: CrossAxisAlignment.center,
+                            //           children: <Widget>[
+                            //             const SizedBox(),
+                            //             Image.asset(
+                            //               "assets/images/robot.png",
+                            //               height: 80,
+                            //             ),
+                            //             const SizedBox(),
+                            //             const Text(
+                            //               "AI Bot",
+                            //               style: TextStyle(
+                            //                   fontFamily: "Lemon Milk",
+                            //                   fontSize: 18,
+                            //                   color: Colors.black
+                            //               ),
+                            //             )
+                            //           ],
+                            //         ),
+                            //       ),
+                            //     )
+                            // ),
 
                             // Profile
                             InkWell(
@@ -367,46 +367,46 @@ class HomePage extends StatelessWidget {
                             ),
 
                             // Confidence Booster
-                            InkWell(
-                                onTap: (){
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => const ConfidenceBooster())
-                                  );
-                                },
-                                borderRadius: BorderRadius.circular(20),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.white.withOpacity(0.5),
-                                      borderRadius: BorderRadius.circular(20)
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 15,
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: <Widget>[
-                                        const SizedBox(),
-                                        Image.asset(
-                                          "assets/images/love-yourself.png",
-                                          height: 80,
-                                        ),
-                                        const SizedBox(),
-                                        const Text(
-                                          "Confidence",
-                                          style: TextStyle(
-                                              fontFamily: "Lemon Milk",
-                                              fontSize: 18,
-                                              color: Colors.black
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                )
-                            ),
+                            // InkWell(
+                            //     onTap: (){
+                            //       Navigator.push(
+                            //           context,
+                            //           MaterialPageRoute(builder: (context) => const ConfidenceBooster())
+                            //       );
+                            //     },
+                            //     borderRadius: BorderRadius.circular(20),
+                            //     child: Container(
+                            //       decoration: BoxDecoration(
+                            //           color: Colors.white.withOpacity(0.5),
+                            //           borderRadius: BorderRadius.circular(20)
+                            //       ),
+                            //       child: Padding(
+                            //         padding: const EdgeInsets.symmetric(
+                            //           vertical: 15,
+                            //         ),
+                            //         child: Column(
+                            //           mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            //           crossAxisAlignment: CrossAxisAlignment.center,
+                            //           children: <Widget>[
+                            //             const SizedBox(),
+                            //             Image.asset(
+                            //               "assets/images/love-yourself.png",
+                            //               height: 80,
+                            //             ),
+                            //             const SizedBox(),
+                            //             const Text(
+                            //               "Confidence",
+                            //               style: TextStyle(
+                            //                   fontFamily: "Lemon Milk",
+                            //                   fontSize: 18,
+                            //                   color: Colors.black
+                            //               ),
+                            //             )
+                            //           ],
+                            //         ),
+                            //       ),
+                            //     )
+                            // ),
 
                             //About Us
                             InkWell(

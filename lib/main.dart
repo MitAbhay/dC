@@ -1,3 +1,4 @@
+import 'package:dear_canary/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dear_canary/screens/LogIn/login.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
 
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MobileAuth(),
+      home: HomePage(),
     );
   }
 }
