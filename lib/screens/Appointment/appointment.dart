@@ -285,7 +285,7 @@ class _AppointmentState extends State<Appointment> {
                                                   )
                                               ),
                                               TextSpan(
-                                                  text: listOfReleivers[index]!["state"],
+                                                  text: listOfReleivers[index]["state"],
                                                   style: const TextStyle(
                                                       fontFamily: "Poppins",
                                                       color: Colors.black,
@@ -309,7 +309,7 @@ class _AppointmentState extends State<Appointment> {
                                                   )
                                               ),
                                               TextSpan(
-                                                  text: listOfReleivers[index]!["type"],
+                                                  text: listOfReleivers[index]["type"],
                                                   style: const TextStyle(
                                                       fontFamily: "Poppins",
                                                       color: Colors.black,
@@ -333,7 +333,7 @@ class _AppointmentState extends State<Appointment> {
                                                   )
                                               ),
                                               TextSpan(
-                                                  text: listOfReleivers[index]!["contactNo"],
+                                                  text: listOfReleivers[index]["contactNo"],
                                                   style: const TextStyle(
                                                       fontFamily: "Poppins",
                                                       color: Colors.black,

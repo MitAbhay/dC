@@ -122,7 +122,7 @@ class _MobileAuthState extends State<MobileAuth> {
 
               //App Name Text
               const Text(
-                "Little\nSparrow",
+                "dear\nCanary",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: "Lemon Milk",
@@ -243,7 +243,7 @@ class _MobileAuthState extends State<MobileAuth> {
 
               //App Name Text
               const Text(
-                "Little\nSparrow",
+                "dear\nCanary",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontFamily: "Lemon Milk",
