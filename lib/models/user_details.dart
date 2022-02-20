@@ -28,7 +28,7 @@ class UserDetail {
     print(userMobile);
   }
 
-  UserDetail.basicEntry(
+  UserDetail.basicEntryWithDeliveryDate(
       this.name,
       this.userDateOfBirth,
       this.userCurrentlyPregnant,
@@ -43,6 +43,13 @@ class UserDetail {
     userAge = calculateAge(userDateOfBirth);
     print("age: $userAge");
   }
+
+  UserDetail.basicEntryWithoutDeliveryDate(
+      this.name,
+      this.userDateOfBirth,
+      this.userCurrentlyPregnant,
+      this.userChildNo
+  );
 
   calculateAge(DateTime birthDate) {
     DateTime currentDate = DateTime.now();

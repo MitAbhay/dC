@@ -30,7 +30,8 @@ class HomePage extends StatelessWidget {
   
    AlanVoice.addButton(
       "8ebf797aaec5e79c69680a2bfdfde45f2e956eca572e1d8b807a3e2338fdd0dc/stage",
-      buttonAlign: AlanVoice.BUTTON_ALIGN_LEFT);
+      buttonAlign: AlanVoice.BUTTON_ALIGN_LEFT,
+   );
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,

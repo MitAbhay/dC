@@ -1,6 +1,7 @@
-import 'package:dear_canary/screens/intro_page_1.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:twilio_flutter/twilio_flutter.dart';
 import 'package:dear_canary/models/user_details.dart';
 import 'package:dear_canary/screens/UserDetailsEntry/user_basic_details_enrty.dart';
 
@@ -25,9 +26,6 @@ class _MobileAuthState extends State<MobileAuth> {
   MobileVerificationState currentState =
       MobileVerificationState.SHOW_MOBILE_FORM_STATE;
 
-  // For firebase auth
-  // final FirebaseAuth _auth = FirebaseAuth.instance;
-
   final _otpController = TextEditingController();
   final _mobileController = TextEditingController();
 
@@ -36,37 +34,26 @@ class _MobileAuthState extends State<MobileAuth> {
   // For activating loading screen
   bool showLoading = false;
 
-  // void signInWithPhoneAuthCredential(
-  //     PhoneAuthCredential phoneAuthCredential) async {
-  //   setState(() {
-  //     showLoading = true;
-  //   });
-  //
-  //   try {
-  //     final authCredential =
-  //     await _auth.signInWithCredential(phoneAuthCredential);
-  //
-  //     setState(() {
-  //       showLoading = false;
-  //     });
-  //
-  //     if (authCredential.user != null) {
-  //       UserDetail.mobileNumber(_mobileController.text);
-  //       Navigator.push(context,
-  //           MaterialPageRoute(builder: (context) => const BasicDataEntry()));
-  //     }
-  //   } on FirebaseAuthException catch (e) {
-  //     setState(() {
-  //       showLoading = false;
-  //     }
-  //     );
-  //
-  //     _scaffoldkey.currentState!
-  //         .showSnackBar(SnackBar(content: Text(e.message.toString())));
-  //   }
-  // }
+  int? otp;
 
-  final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey();
+  TwilioFlutter? twilioFlutter;
+
+  @override
+  void initState() {
+    twilioFlutter = TwilioFlutter(
+        accountSid: 'AC64eee2ed517fe7b2f43921d88a2b61a4',
+        authToken: '7f8c449df436f058fd3b323d9fcbde0d',
+        twilioNumber: '+19034184045'
+    );
+    super.initState();
+  }
+
+  void sendOTP (mobileNumber, otp) {
+    twilioFlutter!.sendSMS(
+        toNumber: mobileNumber,
+        messageBody: "Welcome to dear Canary.\nYour One-Time-Password (OTP) is: ${otp}"
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,40 +62,34 @@ class _MobileAuthState extends State<MobileAuth> {
     final mediaQueryHeight = MediaQuery.of(context).size.height;
     final mediaQueryWidth = MediaQuery.of(context).size.width;
 
-    // Function to send OTP
-    // void _sendOTP() async{
+    Future<void> _showMyDialog(errorText) async {
+      return showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20)
+            ),
+            content: Text(
+              errorText,
+              style: const TextStyle(
+                fontFamily: "Poppins",
 
-      // await _auth.verifyPhoneNumber(
-      //     phoneNumber: _mobileController.text,
-      //     verificationCompleted:
-      //         (phoneAuthCredential) async {
-      //       setState(() {
-      //         showLoading = false;
-      //       }); //signInWithPhoneAuthCredential(phoneAuthCredential);
-      //     },
-      //     verificationFailed:
-      //         (verificationFailed) async {
-      //       setState(() {
-      //         showLoading = false;
-      //       });
-      //       _scaffoldkey.currentState?.showSnackBar(
-      //           SnackBar(
-      //               content: Text(verificationFailed
-      //                   .message
-      //                   .toString())));
-      //     },
-      //     codeSent:
-      //         (verificationId, resendingToken) async {
-      //       setState(() {
-      //         showLoading = false;
-      //         currentState = MobileVerificationState
-      //             .SHOW_OTP_FORM_STATE;
-      //         this.verificationId = verificationId;
-      //       });
-      //     },
-      //     codeAutoRetrievalTimeout:
-      //         (verificationId) async {});
-    // }
+              ),
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('Ok'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
 
     // Login Page
     getMobileFormWidget(context) {
@@ -204,12 +185,16 @@ class _MobileAuthState extends State<MobileAuth> {
                               style: TextButton.styleFrom(
                                   backgroundColor: const Color(0xff084d52)),
                               onPressed: () async {
-                                setState(() {
-                                  showLoading = true;
-                                });
-                                setState(() {
-                                  currentState = MobileVerificationState.SHOW_OTP_FORM_STATE;
-                                });
+                                if (_mobileController.text.isEmpty){
+                                  _showMyDialog("Enter your mobile number");
+                                } else {
+                                  int randomNumber = Random().nextInt(9000) + 1000 ;
+                                  setState(() {
+                                    otp = randomNumber;
+                                    currentState = MobileVerificationState.SHOW_OTP_FORM_STATE;
+                                  });
+                                  sendOTP(_mobileController.text, otp);
+                                }
                               },
                               child: const Center(
                                 child: Text(
@@ -315,8 +300,12 @@ class _MobileAuthState extends State<MobileAuth> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         TextButton(
-                            onPressed: () async{
-                              // _sendOTP();
+                            onPressed: () async {
+                              int randomNumber = Random().nextInt(9000) + 1000 ;
+                              setState(() {
+                                otp = randomNumber;
+                              });
+                              sendOTP(_mobileController.text, otp);
                             },
                             child: const Text(
                               "Resend",
@@ -341,15 +330,13 @@ class _MobileAuthState extends State<MobileAuth> {
                                   style: TextButton.styleFrom(
                                       backgroundColor: const Color(0xff084d52)),
                                   onPressed: () async {
-                                    // PhoneAuthCredential phoneAuthCredential =
-                                    // PhoneAuthProvider.credential(
-                                    //     verificationId: verificationId,
-                                    //     smsCode: _otpController.text);
-                                    //
-                                    // signInWithPhoneAuthCredential(
-                                    //     phoneAuthCredential);
-
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => const BasicDataEntry()));
+                                    if(_otpController.text.isEmpty) {
+                                      _showMyDialog("Enter OTP");
+                                    } else if (_otpController.text != otp.toString()){
+                                      _showMyDialog("Wrong OTP");
+                                    } else {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => const BasicDataEntry()));
+                                    }
                                   },
                                   child: const Center(
                                     child: Text(
@@ -384,7 +371,6 @@ class _MobileAuthState extends State<MobileAuth> {
         home: Scaffold(
             resizeToAvoidBottomInset: false,
             backgroundColor: const Color(0xffe9e8e8),
-            key: _scaffoldkey,
             body: Stack(
               children: <Widget>[
                 if(!showLoading)

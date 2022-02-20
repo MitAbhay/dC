@@ -374,8 +374,8 @@ class _BasicDataEntryState extends State<BasicDataEntry> {
                             }
                             else{
                               // To store basic entry data in user's model
-                              if (_userCurrentlyPregnant){
-                                UserDetail.basicEntry(
+                              if (!_userCurrentlyPregnant){
+                                UserDetail.basicEntryWithDeliveryDate(
                                     _userNameController.text,
                                     _userBirthDate!,
                                     _userCurrentlyPregnant,
@@ -383,11 +383,10 @@ class _BasicDataEntryState extends State<BasicDataEntry> {
                                     int.parse(_userChildNoController.text)
                                 );
                               } else {
-                                UserDetail.basicEntry(
+                                UserDetail.basicEntryWithoutDeliveryDate(
                                     _userNameController.text,
                                     _userBirthDate!,
                                     _userCurrentlyPregnant,
-                                    _userDeliveryDate!,
                                     int.parse(_userChildNoController.text)
                                 );
                               }
