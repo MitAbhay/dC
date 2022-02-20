@@ -103,10 +103,12 @@ In the initial days, postpartum depression may seem like the normal baby blues. 
 We have used the following tech for this Application :
 
 - [Flutter](https://flutter.com/)
-- [Firebase](https://firebase.google.com/)
+- [Alan AI](https://alan.app/)
+- [Twilio](https://www.twilio.com/)
+- [CockroachDB](https://www.cockroachlabs.com/)
 - [Android Studio](https://developer.android.com/)
-- [Dart](https://dart.dev/)
 - [Photoshop](https://www.adobe.com/in/products/photoshop.html)
+  
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
