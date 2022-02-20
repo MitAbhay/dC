@@ -10,7 +10,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/triipaathii/dC">
-    <img src="assets/images/logo.png" alt="Logo" width="120" height="120">
+    <img src="assets/images/logo2.png" alt="Logo" width="120" height="120">
   </a>
 
   <h2 align="center">dear Canary</h2>
