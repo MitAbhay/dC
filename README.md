@@ -62,10 +62,12 @@
 ## About The Project
 
 <div align="center">
-<img src="assets/Screenshots/ss1.jpg" alt="ss" width="250" height="520">
-<img src="assets/Screenshots/ss2.jpg" alt="ss" width="250" height="520">
-<img src="assets/Screenshots/ss3.jpg" alt="ss" width="250" height="520">
-<img src="assets/Screenshots/ss4.jpg" alt="ss" width="250" height="520">
+<img src="assets/ss/ss1.jpeg" alt="ss" width="250" height="520">
+<img src="assets/ss/ss2.jpeg" alt="ss" width="250" height="520">
+<img src="assets/ss/ss3.jpeg" alt="ss" width="250" height="520">
+<img src="assets/ss/ss4.jpeg" alt="ss" width="250" height="520">
+<img src="assets/ss/ss5.jpeg" alt="ss" width="250" height="520">
+<img src="assets/ss/ss6.jpeg" alt="ss" width="250" height="520">
 </div>
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
