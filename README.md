@@ -22,8 +22,6 @@
     <a href="https://electrothon.specnith.com/">Electrothon 4.0</a>
     <br />
     <br />
-    <a href="https://docs.google.com/presentation/d/1MTftF84CK2QUuVeUE3USoIupDVgb1AhyNT_g4CZv5c8/edit#slide=id.p"><strong>Explore the Presentation »</strong></a>
-    <br />
     <a href="https://drive.google.com/file/d/1zbN4qylBrzryQmhiNH4WLDuymoOklK8O/view?usp=sharing"><strong>Download the App</strong></a>
     <br />
     <br />
