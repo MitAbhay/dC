@@ -9,7 +9,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/triipaathii/dC">
+  <a href="https://github.com/triipaathii/dC target="_blank"">
     <img src="assets/images/logo2.png" alt="Logo" width="120" height="120">
   </a>
 
@@ -19,15 +19,17 @@
     An Application for solving the problem of Postmartum Depression.
     <br />
     This is a Submission Project for Hackathon : 
-    <a href="https://electrothon.specnith.com/">Electrothon 4.0</a>
+    <a href="https://electrothon.specnith.com/ target="_blank"">Electrothon 4.0</a>
     <br />
     <br />
-    <a href="https://drive.google.com/file/d/1zbN4qylBrzryQmhiNH4WLDuymoOklK8O/view?usp=sharing"><strong>Download the App</strong></a>
+    <a href="https://drive.google.com/file/d/1zbN4qylBrzryQmhiNH4WLDuymoOklK8O/view?usp=sharing target="_blank""><strong>Download the App</strong></a>
+    <br />
+    <a href="https://www.youtube.com/watch?v=148lrMrd9o4&t=119s target="_blank""><strong>Project Vidio on Youtube</strong></a>
     <br />
     <br />
-    <a href="https://github.com/triipaathii/dC/issues">Report Bug</a>
+    <a href="https://github.com/triipaathii/dC/issues target="_blank"">Report Bug</a>
     ·
-    <a href="https://github.com/triipaathii/dC/issues">Request Feature</a>
+    <a href="https://github.com/triipaathii/dC/issues target="_blank"">Request Feature</a>
   </p>
 </div>
 
@@ -110,7 +112,6 @@ We have used the following tech for this Application :
 - [CockroachDB](https://www.cockroachlabs.com/)
 - [Android Studio](https://developer.android.com/)
 - [Photoshop](https://www.adobe.com/in/products/photoshop.html)
-  
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
